@@ -67,6 +67,11 @@ Current version: **1.0.0** (2017-10-12)
             // ...
         }
 
+        // Executes only in XL breakpoint
+        if(isViewport('xl')) {
+            // ...
+        }
+
         // Execute code each time window size changes
         $(window).resize(function() {
             if(isViewport('xs')) {
