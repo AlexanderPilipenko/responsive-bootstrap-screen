@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Responsive Bootstrap Screen</title>
+        <meta charset="UTF-8">
+        <style>
+            html::before{
+                display:none !important
+            }
+
+            @media (max-width:575px) {
+                html::before {
+                    content:'xs:<sm<md<lg<xl'
+                }
+            }
+
+            @media (min-width:575px) and (max-width:767px) {
+                html::before {
+                    content:'sm:>xs<md<lg<xl'
+                }
+            }
+
+            @media (min-width:767px) and (max-width:991px) {
+                html::before {
+                    content:'md:>xs>sm<lg<xl'
+                }
+            }
+
+            @media (min-width:991px) and (max-width:1199px) {
+                html::before {
+                    content:'lg:>xs>sm>md<xl'
+                }
+            }
+
+            @media (min-width:1199px) {
+                html::before {
+                    content:'xl:>xs>sm>md>lg>'
+                }
+            }
+        </style>
+    </head>
+    <body>
+        ...
+    </body>
+    <script>
+        /**
+         * Responsive Bootstrap Screen
+         * https://github.com/AlexanderPilipenko/responsive-bootstrap-screen
+         * License: MIT
+         *
+         * isViewport('xs')
+         * isViewport('>xs')
+         * isViewport('sm')
+         * isViewport('<sm')
+         * isViewport('>sm')
+         * isViewport('md')
+         * isViewport('<md')
+         * isViewport('>md')
+         * isViewport('lg')
+         * isViewport('<lg')
+         * isViewport('>lg')
+         * isViewport('xl')
+         * isViewport('<xl')
+         *
+         * @param  string viewport
+         * @return boolean
+         */
+        function isViewport(viewport) {
+            if (viewport.search(/[\:|\>|\<]/) == -1) {
+                viewport += ':';
+            }
+            return (getComputedStyle(document.querySelector('html'), ':before').content).search(viewport) !== -1;
+        }
+    </script>
+</html>

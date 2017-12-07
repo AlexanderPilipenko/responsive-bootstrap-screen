@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Responsive Bootstrap Screen</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="./../dist/isViewport.min.js"></script>
+        <script>
+            // Test the code
+            function screen() {
+                $('.screen').hide();
+
+                // Executes only in XS breakpoint
+                if(isViewport('xs')) {
+                    $('.screen-xs').show();
+                }
+
+                // Executes only in SM breakpoint
+                if(isViewport('sm')) {
+                    $('.screen-sm').show();
+                }
+
+                // Executes only in MD breakpoint
+                if(isViewport('md')) {
+                    $('.screen-md').show();
+                }
+
+                // Executes only in LG breakpoint
+                if(isViewport('lg')) {
+                    $('.screen-lg').show();
+                }
+
+                if(isViewport('xl')) {
+                    $('.screen-xl').show();
+                }
+            }
+
+            $(document).ready(screen);
+            $(window).resize(screen);
+        </script>
+        <style>
+            /* Test the styles */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html, body, .screen {
+                color: #f1f1f1;
+                height: 100%;
+                min-height: 100%;
+            }
+
+            .screen {
+                display: none;
+                font: bold 80px/100vh Arial;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            @media (max-width: 767px) {
+                .screen {
+                    font-size: 50px
+                }
+            }
+        </style>
+    <body>
+        <div class="screen screen-xs" style="background-color: #ef5350">screen xs</div>
+        <div class="screen screen-sm" style="background-color: #536dfe">screen sm</div>
+        <div class="screen screen-md" style="background-color: #009688">screen md</div>
+        <div class="screen screen-lg" style="background-color: #ff3d00">screen lg</div>
+        <div class="screen screen-xl" style="background-color: #00d0ff">screen xl</div>
+    </body>
+</html>
